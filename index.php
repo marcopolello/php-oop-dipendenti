@@ -93,27 +93,28 @@
           $this -> setIban($iban);
           $this -> setTasks($tasks);
         }
+        // id dipendente
         public function getIdEmp(){
           return $this -> idEmp;
         }
         public function setIdEmp($idEmp) {
           $this -> idEmp = $idEmp;
         }
-
+        // COD FISCALE DIPENDENTE
         public function getCF(){
           return $this -> CF;
         }
         public function setCF($CF) {
           $this -> CF = $CF;
         }
-
+        // IBAN DIPENDENTE
         public function getIban(){
           return $this -> iban;
         }
         public function setIban($iban) {
           $this -> iban = $iban;
         }
-
+        // mansioni
         public function getTasks(){
           return $this -> tasks;
         }
