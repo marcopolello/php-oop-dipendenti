@@ -12,7 +12,7 @@
         justify-content: space-between;
       }
       div{
-        width: 33%;
+        max-width: 33%;
       }
     </style>
 
@@ -95,7 +95,7 @@
           if (($ral>0 && $ral<=10000)) {
             $this -> ral = $ral;
           } else {
-            $ral = "error, unacceptable value";
+            $ral = "<b>error, unacceptable value</b>";
           }
         }
         public function getMainTask() {
@@ -120,7 +120,7 @@
             if ($securyLvl>0 && $securyLvl<=5) {
               $this -> securyLvl = $securyLvl;
             } else {
-              $this -> securyLvl = "Warning <br> wrong security level";
+              $this -> securyLvl = "<b>Warning, <br> wrong security level</b>";
             }
         }
         public function __toString() {
@@ -168,20 +168,24 @@
             return $this -> employees;
         }
         public function setEmployees($employees) {
+          if (empty($employees) || !isset($employees)) {
+            throw new Exception("there aren't employees");
+          } else {
             $this -> employees = $employees;
+          }
         }
         public function setSecuryLvl($securyLvl) {
             if ($securyLvl>5 && $securyLvl<=10) {
               $this -> securyLvl = $securyLvl;
             } else {
-              $this -> securyLvl = "Warning <br> wrong security level";
+              $this -> securyLvl = "<b>Warning, <br> wrong security level</b>";
             }
         }
         public function setRal($ral) {
           if (($ral>10000 && $ral<=100000)) {
             $this -> ral = $ral;
           } else {
-            $this -> ral = "error, unacceptable value";
+            $this -> ral = "<b>error, unacceptable value</b>";
           }
         }
         public function __toString() {
@@ -237,13 +241,15 @@
             '50000',
             '(b)vacancy',
             'Cuoio e Tessuti',
-            [$emp1, $emp1, $emp1, $emp1,]
+            [$emp1]
         );
         echo '<div>BOSS1:<br>' . $boss1 . '<br><br></div>';
       } catch (AtLeast3Name | AtLeast3Lastname  $e) {
         echo "Error: Name/Lastname are not valid!<br>"
             . "At Least 3 characters are accepted<br>"
             . "please check<br>";
+      } catch (Exception $e) {
+        echo "non ci sono dipendenti";
       }
 
     ?>
