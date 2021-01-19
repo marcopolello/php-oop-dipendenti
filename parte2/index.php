@@ -249,6 +249,7 @@
             . "At Least 3 characters are accepted<br>"
             . "please check<br>";
       } catch (Exception $e) {
+        // var_dump($e); dd(); message protected = there aren't employees
         echo "non ci sono dipendenti";
       }
 
